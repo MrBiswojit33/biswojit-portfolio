@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biswojit Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #6c9bc9;
+            --secondary-color: #e6f2ff;
+            --dark-color: #2d4a6e;
+            --light-color: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 0;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--light-color);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--light-color);
+            margin-left: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .skills {
+            background-color: var(--secondary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .projects {
+            background-color: var(--light-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="http://127.0.0.1:5500/index.html#" class="logo">Portfolio</a>
+                <div class="nav-links">
+                    <a href="http://127.0.0.1:5500/index.html#about">About</a>
+                    <a href="http://127.0.0.1:5500/index.html#skills">Skills</a>
+                    <a href="http://127.0.0.1:5500/index.html#projects">Projects</a>
+                    <a href="http://127.0.0.1:5500/index.html#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="./Biswojit Portfolio_files/file-3053366b-5288-437f-9d49-6fa14bba5c96.jpg" alt="Professional headshot of a smiling web developer with soft blue background" class="profile-img">
+                <h1>Biswojit Mallick</h1>
+                <p class="subtitle">Web Developer &amp; Software engineer</p>
+                <div>
+                    <a href="http://127.0.0.1:5500/index.html#projects" class="btn">View My Work</a>
+                    <a href="http://127.0.0.1:5500/index.html#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate web developer with 5 years of experience creating beautiful, functional websites and web applications. My approach combines technical expertise with an eye for design, ensuring that every project delivers both performance and aesthetic appeal.</p>
+                    <p>When I'm not coding, you can find me hiking in the mountains, reading sci-fi novels, or experimenting with new recipes in the kitchen. I believe in lifelong learning and am constantly expanding my skill set through personal projects and professional development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend Development</h3>
+                    <p>HTML5, CSS3, JavaScript, React, Vue.js, responsive design, accessibility standards.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend Development</h3>
+                    <p>Node.js, Express, Python, Django, RESTful APIs, database design, authentication.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Wireframing, prototyping, Figma, Adobe XD, user research, interaction design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="./Biswojit Portfolio_files/istockphoto-1488294044-612x612.jpg" alt="Dashboard application showing analytics charts and user metrics">
+                    <div class="project-info">
+                        <h3>Analytics Dashboard</h3>
+                        <p>A responsive web application for visualizing business metrics with interactive charts and customizable widgets.</p>
+                        <div class="project-links">
+                            <a href="http://127.0.0.1:5500/index.html#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Biswojit Portfolio_files/AdobeStock_223290240-1-2-1536x948.jpeg" height="410" width="500" alt="E-commerce website product page with ean layout and product images">
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-stack online store with product catalog, shopping cart, and secure checkout system.</p>
+                        <div class="project-links">
+                            <a href="http://127.0.0.1:5500/index.html#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="./Biswojit Portfolio_files/mobile-banking.jpg" height="410" width="380" alt="Mobile banking app interface with transaction history and account balances">
+                    <div class="project-info">
+                        <h3>Banking App</h3>
+                        <p>Mobile-first financial application featuring account management, budgeting tools, and transaction history.</p>
+                        <div class="project-links">
+                            <a href="http://127.0.0.1:5500/index.html#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>I'm currently available for freelance work or full-time positions. If you have a project you'd like to discuss, don't hesitate to reach out!</p>
+                    <p><strong>Email:</strong> techbiswojit@gmail.com</p>
+                    <p><strong>Phone:</strong> 8575637395</p>
+                    <div class="social-links">
+                        <a href="http://127.0.0.1:5500/index.html#">GitHub</a>
+                        <a href="http://127.0.0.1:5500/index.html#">LinkedIn</a>
+                        <a href="http://127.0.0.1:5500/index.html#">Twitter</a>
+                        <a href="http://127.0.0.1:5500/index.html#">Dribbble</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Mr Biswojit Mallick. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple form validation
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    alert('Thank you for your message! I will get back to you soon.');
+                    form.reset();
+                } else {
+                    alert('Please fill out all fields.');
+                }
+            });
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
